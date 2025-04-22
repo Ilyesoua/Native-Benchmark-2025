@@ -1,0 +1,65 @@
+services:
+  postgres:
+    image: postgres:15
+    container_name: postgres-benchmark
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: moviesdb
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - backend
+    depends_on:
+      - monitor-native
+
+  api-native:
+    build:
+      context: .
+      dockerfile: Dockerfile.native
+    container_name: api-native-benchmark
+    volumes:
+      - ./metrics-output:/app/metrics-output
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/moviesdb
+      SPRING_DATASOURCE_USERNAME: user
+      SPRING_DATASOURCE_PASSWORD: password
+    ports:
+      - "8080:8080"
+    depends_on:
+      - monitor-native
+      - postgres
+    networks:
+      - backend
+
+  k6:
+    image: grafana/k6
+    container_name: k6-benchmark
+    volumes:
+      - ./k6-tests:/k6-tests
+      - ./metrics-output:/metrics-output
+    entrypoint: ["sh", "-c", "k6 run /k6-tests/test-native.js --out csv=/metrics-output/k6-native-result.csv"]
+    depends_on:
+      - monitor-native
+      - api-native
+    networks:
+      - backend
+
+  monitor-native:
+    build:
+      context: ./monitor
+      dockerfile: Dockerfile.native
+    container_name: monitor-native-benchmark
+    volumes:
+      - ./metrics-output:/tmp/metrics-output
+    pid: "host"
+    networks:
+      - backend
+
+volumes:
+  postgres_data:
+
+networks:
+  backend:

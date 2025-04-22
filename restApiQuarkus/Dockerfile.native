@@ -1,0 +1,15 @@
+FROM ghcr.io/graalvm/graalvm-community:23 as builder
+
+WORKDIR /app
+
+RUN microdnf install maven xz
+
+RUN curl -LO https://github.com/upx/upx/releases/download/v4.2.1/upx-4.2.1-amd64_linux.tar.xz
+
+RUN tar -xf upx-4.2.1-amd64_linux.tar.xz
+
+RUN cp upx-4.2.1-amd64_linux/upx /usr/local/bin/
+
+COPY . .
+
+CMD ["bash", "-c", "mvn clean package -Pnative -DskipTests && upx -9 /app/target/restApi-1.0.0-SNAPSHOT-runner && /app/target/restApi-1.0.0-SNAPSHOT-runner"]
