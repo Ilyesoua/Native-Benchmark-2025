@@ -34,7 +34,7 @@ Evaluate and compare the following performance aspects:
  | Quarkus Native     | Native (GraalVM) | Java 21 + Quarkus       |
  | Micronaut          | JVM             | Java 21 + Micronaut     |
  | Micronaut Native   | Native (GraalVM) | Java 21 + Micronaut     |
- | Go                 | Native           | Go 1.18                |
+ | Go                 | Native           | Go 1.20                |
  | Rust               | Native           | Rust (actix-web, etc.)  |
 
  ---
