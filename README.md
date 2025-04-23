@@ -1,5 +1,10 @@
  # 🚀 Native Benchmark 2025 – Spring / Quarkus / Micronaut / Go / Rust
 
+![Langs](https://img.shields.io/badge/languages-Spring_Boot%20|%20Quarkus%20|%20Micronaut%20|%20Go%20|%20Rust-blue)
+![License](https://img.shields.io/github/license/Ilyesoua/Native-Benchmark-2025)
+![Last Commit](https://img.shields.io/github/last-commit/Ilyesoua/Native-Benchmark-2025)
+
+
  This project benchmarks multiple backend stacks, comparing their performance in both **JVM mode** and **native compilation** (where available), along with two natively compiled languages: **Go** and **Rust**.
 
  ---
@@ -57,7 +62,7 @@ docker-compose -f docker-compose-native.yml up —build
 
  ## 📊 Metrics Collected
 
-[Metrics](metrics.md)
+[Metrics](docs/metrics.md)
 
  All metrics are logged and can be exported via `k6` output integrations (InfluxDB, JSON, etc.).
 
@@ -107,4 +112,5 @@ docker-compose -f docker-compose-native.yml up —build
 
  ## 📖 License
 
- MIT – free to use, modify, and share.
+[License](LICENSE.md)
+
