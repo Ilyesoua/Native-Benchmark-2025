@@ -68,17 +68,11 @@ docker-compose -f docker-compose-native.yml up —build
 
  ---
 
- ## 🧪 Endpoints Tested and their purpose
+ ## 🧪 Architecture
 
-| **Method**  | **Route**                     | **Function**                                                                  | **Purpose**                                    |
-|-------------|-------------------------------|-------------------------------------------------------------------------------|------------------------------------------------|
-|  **GET**     | /api/movies?title=…                | Search for a movie by title via OMDB API call                                 | Web Request: search for a movie by title in OMDB |
-|  **POST**    | /api/movies                    | Add a movie directly to the database (with JSON data)                         | Direct database access (write)                  |
-|  **GET**     | /api/movies/{id}               | Read a movie from the database by ID                                           | Direct database access (read)                   |
-|  **GET**     | /api/internal/process          | Trigger an internal CPU-bound process (e.g., calculation, parsing)            | Benchmark heavy processes                       |
-|  **GET**     | /api/health                    | Check if the API is up (simple "pong" response)                               | Verify API availability                         |
-|  **GET**     | /api/movies/random             | Retrieve a random movie from the database                                      | Database query + server-side logic             |
+For an overview of the application and the Docker set up : [Architecture](docs/architecture.md)
 
+For an overview of the k6 testing and the monitoring : [Testing](docs/testing.md)
 
  ---
 
@@ -101,6 +95,7 @@ docker-compose -f docker-compose-native.yml up —build
  - Rust
  - Micronaut
  - Micronaut Native
+ - Add a methodology section
 
  ---
 
