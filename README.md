@@ -92,7 +92,6 @@ For an overview of the k6 testing and the monitoring : [Testing](docs/testing.md
 
  ## 📈 Coming Soon
 
- - Rust
  - Micronaut
  - Micronaut Native
  - Add a methodology section

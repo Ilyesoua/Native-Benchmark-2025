@@ -1,0 +1,26 @@
+[package]
+name = "restapi"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+rand = "0.8"
+# Web framework
+reqwest = { version = "0.11", features = ["json"] }
+actix-web = "4.10.2"
+# ORM for PostgreSQL
+diesel = { version = "2.2.9", features = ["postgres", "r2d2"] }
+r2d2 = "0.8"                # Generic pool manager
+# Serialization for JSON
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+# Logging
+log = "0.4"
+# Environmental variable parsing
+dotenv = "0.15"
+# Database management (PostgreSQL via Diesel)
+tokio = { version = "1", features = ["full"] }
+
+[dev-dependencies]
+# Diesel CLI for testing
+diesel_cli = { version = "2.0", features = ["postgres"] }

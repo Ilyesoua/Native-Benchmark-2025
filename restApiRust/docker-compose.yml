@@ -1,0 +1,68 @@
+services:
+  postgres:
+    image: postgres:15
+    container_name: postgres-benchmark
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: moviesdb
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - backend
+    depends_on:
+      - monitor
+
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: api-benchmark
+    volumes:
+      - ./metrics-output:/app/metrics-output
+    environment:
+      DB_HOST: postgres
+      DB_PORT: 5432
+      DB_NAME: moviesdb
+      DB_USER: user
+      DB_PASSWORD: password
+      DATABASE_URL: postgresql://user:password@postgres:5432/moviesdb
+    ports:
+      - "8080:8080"
+    depends_on:
+      - monitor
+      - postgres
+    networks:
+      - backend
+
+  k6:
+    image: grafana/k6
+    container_name: k6-benchmark
+    volumes:
+      - ./k6-tests:/k6-tests
+      - ./metrics-output:/metrics-output
+    entrypoint: ["sh", "-c", "k6 run /k6-tests/test.js --out csv=/metrics-output/k6-result.csv"]
+    depends_on:
+      - monitor
+      - api
+    networks:
+      - backend
+
+  monitor:
+    build:
+      context: ./monitor
+      dockerfile: Dockerfile
+    container_name: monitor-benchmark
+    volumes:
+      - ./metrics-output:/tmp/metrics-output
+    pid: "host"
+    networks:
+      - backend
+
+volumes:
+  postgres_data:
+
+networks:
+  backend:
