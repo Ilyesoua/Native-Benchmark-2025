@@ -1,4 +1,4 @@
-FROM ghcr.io/graalvm/graalvm-community:23 as builder
+FROM ghcr.io/graalvm/graalvm-community:21 as builder
 
 WORKDIR /app
 

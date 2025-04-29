@@ -12,4 +12,4 @@ RUN cp upx-4.2.1-amd64_linux/upx /usr/local/bin/
 
 COPY . .
 
-CMD ["bash", "-c", "mvn clean package -Pnative -DskipTests && upx -9 /app/target/restApi-1.0.0-SNAPSHOT-runner && /app/target/restApi"]
+CMD ["bash", "-c", "mvn clean package -Pnative -DskipTests && upx -9 /app/target/restApi && /app/target/restApi"]

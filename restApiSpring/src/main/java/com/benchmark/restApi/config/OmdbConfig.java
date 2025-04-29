@@ -24,12 +24,6 @@ public class OmdbConfig {
     @Value("${omdb.api.url}")
     private String omdbApiUrl;
 
-    @Value("${proxy.host}")
-    private String proxyHost;
-
-    @Value("${proxy.port}")
-    private int proxyPort;
-
     @Bean
     public RestTemplate restTemplate() {
         SimpleClientHttpRequestFactory factory = new SimpleClientHttpRequestFactory();
