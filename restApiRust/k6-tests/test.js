@@ -89,6 +89,10 @@ export default function () {
                 'get by id status is 200': (r) => r.status === 200,
                 // 'get by id has correct title': (r) => r.json('Title').startsWith('TestMovie_'),
             });
+
+            if (res.status === 200) {
+                getByIdTrend.add(res.timings.duration);
+            }
         });
     });
 
