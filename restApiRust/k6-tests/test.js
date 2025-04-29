@@ -91,7 +91,7 @@ export default function () {
             });
 
             if (res.status === 200) {
-                getByIdTrend.add(res.timings.duration);
+                getByIdTrend.add(resId.timings.duration);
             }
         });
     });
