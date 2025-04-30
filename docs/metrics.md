@@ -5,7 +5,6 @@
 |  Start up time                      | Time for the application to start                                               | Critical for serverless/scalable architectures (e.g., Kubernetes cold start) | Docker          |
 |  Executable size                    | Final binary or executable file size                                            | Impacts transfer speed and disk space requirements                          | Docker          |
 |  CPU usage/s                        | CPU resources used per second during execution                                  | Evaluates program efficiency on CPU performance                             | script          |
-|  Threads count                      | Number of threads used during execution                                         | Helps detect concurrency issues or size runtime environment                  | script          |
 |  Physical memory usage              | Total RAM used (peak)                                                           | Useful for detecting memory leaks or adjusting production memory limits      | script          |
 |  Physical memory while running      | Average RAM usage during execution                                              | Measures memory stability and efficiency                                    | script          |
 |  http_req_duration{tag:health}     | Response time for the /health endpoint                                          | Checks latency of API health service                                        | k6              |

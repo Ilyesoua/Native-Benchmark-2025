@@ -1,7 +1,6 @@
  # 🚀 Native Benchmark 2025 – Spring / Quarkus / Micronaut / Go / Rust
 
 ![Langs](https://img.shields.io/badge/languages-Spring_Boot%20|%20Quarkus%20|%20Micronaut%20|%20Go%20|%20Rust-blue)
-![License](https://img.shields.io/github/license/Ilyesoua/Native-Benchmark-2025)
 ![Last Commit](https://img.shields.io/github/last-commit/Ilyesoua/Native-Benchmark-2025)
 
 
@@ -47,14 +46,14 @@ Evaluate and compare the following performance aspects:
 
  ```bash
 cd restApi<Framework>
-docker-compose -f docker-compose.yml up —build
+./<Framework>.sh
  ```
 
 #### Or
 
-```bash
+```powershell
 cd restApi<Framework>
-docker-compose -f docker-compose-native.yml up —build
+.\<Framework>.ps1
  ```
 
 
@@ -65,6 +64,12 @@ docker-compose -f docker-compose-native.yml up —build
 [Metrics](docs/metrics.md)
 
  All metrics are logged and can be exported via `k6` output integrations (InfluxDB, JSON, etc.).
+
+ ---
+
+## 🔧 Methodology
+
+ We run the tests 10 times for each Framework, compute their average and then compare it here : [Results](docs/results.md)
 
  ---
 
@@ -79,7 +84,6 @@ For an overview of the k6 testing and the monitoring : [Testing](docs/testing.md
  ## 📝 Notes
 
  - Native builds use `GraalVM Native Image`.
- - Memory and startup performance are especially relevant for serverless / microservice environments.
 
  ---
 
@@ -94,7 +98,6 @@ For an overview of the k6 testing and the monitoring : [Testing](docs/testing.md
 
  - Micronaut
  - Micronaut Native
- - Add a methodology section
 
  ---
 
@@ -106,5 +109,5 @@ For an overview of the k6 testing and the monitoring : [Testing](docs/testing.md
 
  ## 📖 License
 
-[License](LICENSE.md)
+[License](LICENSE)
 

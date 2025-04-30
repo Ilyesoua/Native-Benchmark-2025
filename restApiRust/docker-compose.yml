@@ -12,8 +12,6 @@ services:
       - postgres_data:/var/lib/postgresql/data
     networks:
       - backend
-    depends_on:
-      - monitor
 
   api:
     build:
@@ -32,7 +30,6 @@ services:
     ports:
       - "8080:8080"
     depends_on:
-      - monitor
       - postgres
     networks:
       - backend
@@ -45,19 +42,7 @@ services:
       - ./metrics-output:/metrics-output
     entrypoint: ["sh", "-c", "k6 run /k6-tests/test.js --out csv=/metrics-output/k6-result.csv"]
     depends_on:
-      - monitor
       - api
-    networks:
-      - backend
-
-  monitor:
-    build:
-      context: ./monitor
-      dockerfile: Dockerfile
-    container_name: monitor-benchmark
-    volumes:
-      - ./metrics-output:/tmp/metrics-output
-    pid: "host"
     networks:
       - backend
 
