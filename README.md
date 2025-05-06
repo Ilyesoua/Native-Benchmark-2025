@@ -1,6 +1,6 @@
- # 🚀 Native Benchmark 2025 – Spring / Quarkus / Micronaut / Go / Rust
+ # 🚀 Native Benchmark 2025 – Spring / Quarkus / Go / Rust
 
-![Langs](https://img.shields.io/badge/languages-Spring_Boot%20|%20Quarkus%20|%20Micronaut%20|%20Go%20|%20Rust-blue)
+![Langs](https://img.shields.io/badge/languages-Spring_Boot%20|%20Quarkus%20|%20Go%20|%20Rust-blue)
 ![Last Commit](https://img.shields.io/github/last-commit/Ilyesoua/Native-Benchmark-2025)
 
 
@@ -31,8 +31,6 @@ Evaluate and compare the following performance aspects:
  | Spring Native      | Native (GraalVM) | Java 21 + Spring AOT    |
  | Quarkus            | JVM             | Java 21 + Quarkus       |
  | Quarkus Native     | Native (GraalVM) | Java 21 + Quarkus       |
- | Micronaut          | JVM             | Java 21 + Micronaut     |
- | Micronaut Native   | Native (GraalVM) | Java 21 + Micronaut     |
  | Go                 | Native           | Go 1.20                |
  | Rust               | Native           | Rust (actix-web, etc.)  |
 
@@ -91,13 +89,6 @@ For an overview of the k6 testing and the monitoring : [Testing](docs/testing.md
 
  - Docker
  - Docker compose
-
- ---
-
- ## 📈 Coming Soon
-
- - Micronaut
- - Micronaut Native
 
  ---
 

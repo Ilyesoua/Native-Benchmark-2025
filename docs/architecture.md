@@ -1,6 +1,6 @@
 # 🧱 Architecture Overview
 
-This document provides a visual and descriptive overview of the architecture used for the benchmark project comparing Spring, Quarkus, Micronaut, Go, and Rust stacks.
+This document provides a visual and descriptive overview of the architecture used for the benchmark project comparing Spring, Quarkus, Go, and Rust stacks.
 
 ---
 
