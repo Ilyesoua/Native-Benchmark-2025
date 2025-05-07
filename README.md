@@ -6,6 +6,8 @@
 
  This project benchmarks multiple backend stacks, comparing their performance in both **JVM mode** and **native compilation** (where available), along with two natively compiled languages: **Go** and **Rust**.
 
+To see the [results](docs/main.pdf)
+
  ---
 
 ## 🎯 Goal
@@ -67,7 +69,7 @@ cd restApi<Framework>
 
 ## 🔧 Methodology
 
- We run the tests 10 times for each Framework, compute their average and then compare it here : [Results](docs/results.md)
+ We run the tests 10 times for each Framework, compute their average and then compare it.
 
  ---
 
